@@ -16,16 +16,16 @@ const TextContents = () => {
 	//完了・未完了の場合のTodoをソートする
 	const filterTodos = () => {
 		if (todoStatus === "完了") {
-			const completeTodos = todos.filter(value => value.status === true)
+			const completeTodos = todos.filter(value => value.status === true);
 
 			return completeTodos;
 		}else if (todoStatus === "未完了") {
-			const incompleteTodos = (todos.filter(value => value.status === false))
+			const incompleteTodos = (todos.filter(value => value.status === false));
 
-			return incompleteTodos
+			return incompleteTodos;
 		}
 
-		return todos
+		return todos;
 	};
 
 	//完了・未完了を判定する
@@ -34,7 +34,7 @@ const TextContents = () => {
 			if (index.id === id) {
 				index.status = !index.status ;
 			}
-			return index
+			return index;
 		})
 
 		setTodos(changeStatus)

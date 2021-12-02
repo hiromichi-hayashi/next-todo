@@ -2,16 +2,16 @@ import { useState } from "react";
 import styles from "../../styles/sass/style.module.scss";
 
 const Form = (props) => {
-	const [todo, setTodo] = useState("");
+	const [text, setText] = useState("");
 
-	const submitTodo = () => {
-	if (todo === "") {
-	 		alert("Todoを入力してください")
-			return
+	const submitText = () => {
+	if (text === "") {
+	 		alert("Todoを入力してください");
+			return;
 		}
 
-    props.getTodo(todo, false);
-		setTodo("");
+    props.addTodo(text, false);
+		setText("");
   }
 
 	return (
@@ -21,10 +21,10 @@ const Form = (props) => {
 					className={styles.main_form_txt}
 					type="text"
 					placeholder="TODO"
-					onChange={e => setTodo(e.target.value)}
-					value={todo}
+					onChange={e => setText(e.target.value)}
+					value={text}
 				/>
-				<button className={styles.main_form_submit} type="button" onClick={submitTodo}>
+				<button className={styles.main_form_submit} type="button" onClick={submitText}>
 					追加
 				</button>
 			</form>
