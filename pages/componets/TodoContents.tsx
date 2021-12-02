@@ -1,7 +1,5 @@
 import { useState } from "react";
-
 import Form from "./Form";
-
 import styles from "../../styles/sass/style.module.scss";
 
 const TextForm = () => {

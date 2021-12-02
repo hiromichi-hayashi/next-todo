@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import styles from "../../styles/sass/style.module.scss";
 
 const Form = (props) => {
@@ -10,6 +9,7 @@ const Form = (props) => {
 	 		alert("Todoを入力してください")
 			return
 		}
+
     props.getTodo(todo, false);
 		setTodo("");
   }
