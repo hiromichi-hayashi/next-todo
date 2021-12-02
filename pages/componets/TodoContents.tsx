@@ -47,7 +47,7 @@ const TextContents = () => {
 				<div className={styles.main_contents_tabs}>
 					{todoProcess.map((status) => {
 						return (
-							<button className={`${styles.main_contents_tabs_tab}${todoStatus === status && styles.is_active}`} 
+							<button className={`${styles.main_contents_tabs_tab} ${todoStatus === status && styles.is_active}`} 
 								onClick={() => setTodoStatus(status)}>
 									{status}
 							</button>
@@ -58,11 +58,11 @@ const TextContents = () => {
 					return (
 						<li className={styles.main_contents_list_item} key={index.toString()}>
 							<p className=
-								{`${styles.main_contents_list_item_ttl}${value.status && styles.is_done_item_ttl}`}>
+								{`${styles.main_contents_list_item_ttl} ${value.status && styles.is_done_item_ttl}`}>
 									{value.todo}
 							</p>
 							<button
-								className={`${styles.main_contents_list_item_button}${value.status && styles.is_done_item_button}`} 
+								className={`${styles.main_contents_list_item_button} ${value.status && styles.is_done_item_button}`} 
 									onClick={() => isTodoChangeStatus(value.id)}>
 								完了
 							</button>
