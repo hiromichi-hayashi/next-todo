@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-
 import logo from "../../public/img/logo.png";
 import styles from "../../styles/sass/style.module.scss";
 

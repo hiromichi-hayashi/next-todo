@@ -1,5 +1,4 @@
 import Head from "next/head";
-
 import Header from "./componets/Header";
 import TodoContents from "./componets/TodoContents";
 

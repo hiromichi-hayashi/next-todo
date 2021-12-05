@@ -9,8 +9,8 @@ const TextContents = () => {
 	const todoProcess = ["全て", "完了", "未完了"];
 
 	//Formコンポーネントから渡された値を格納していく
-	const getTodo = (todo, status) => {
-		setTodos([...todos, {id: todos.length+1, todo, status }]);
+	const getTodo = (id, todo, status) => {
+		setTodos([...todos, {id, todo, status }]);
 	};
 
 	//完了・未完了の場合のTodoをソートする
@@ -20,7 +20,7 @@ const TextContents = () => {
 
 			return completeTodos;
 		}else if (todoStatus === "未完了") {
-			const incompleteTodos = (todos.filter(value => value.status === false));
+			const incompleteTodos = todos.filter(value => value.status === false);
 
 			return incompleteTodos;
 		}
@@ -65,11 +65,11 @@ const TextContents = () => {
 							</p>
 							<button
 								className={`${styles.list_item_button} ${value.status && styles.is_done_item_button}`} 
-									onClick={() => isTodoChangeStatus(value.id)}>
+								onClick={() => isTodoChangeStatus(value.id)}>
 								完了
 							</button>
 						</li>
-						)
+					)
 				})}
 			</div>
 		</main>

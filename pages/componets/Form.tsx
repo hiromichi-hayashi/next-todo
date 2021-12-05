@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import styles from "../../styles/sass/style.module.scss";
 
 const Form = (props) => {
@@ -10,7 +11,7 @@ const Form = (props) => {
 			return;
 		}
 
-    props.addTodo(text, false);
+    props.addTodo(uuidv4(), text, false);
 		setText("");
   }
 
