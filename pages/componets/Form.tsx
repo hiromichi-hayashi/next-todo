@@ -15,20 +15,18 @@ const Form = (props) => {
   }
 
 	return (
-		<>
-			<form className={styles.main_form}>
-				<input
-					className={styles.main_form_txt}
-					type="text"
-					placeholder="TODO"
-					onChange={e => setText(e.target.value)}
-					value={text}
-				/>
-				<button className={styles.main_form_submit} type="button" onClick={submitText}>
-					追加
-				</button>
-			</form>
-		</>
+		<form className={styles.form}>
+			<input
+				className={styles.form_txt}
+				type="text"
+				placeholder="TODO"
+				value={text}
+				onChange={e => setText(e.target.value)}
+			/>
+			<button className={styles.form_submit} type="button" onClick={submitText}>
+				追加
+			</button>
+		</form>
 	);
 };
 

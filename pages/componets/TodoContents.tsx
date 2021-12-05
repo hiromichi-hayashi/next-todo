@@ -4,13 +4,13 @@ import styles from "../../styles/sass/style.module.scss";
 
 const TextContents = () => {
 	const [todos, setTodos] = useState([]);
-	const [todoStatus, setTodoStatus] = useState("");
+	const [todoStatus, setTodoStatus] = useState("全て");
 	
 	const todoProcess = ["全て", "完了", "未完了"];
 
-	//todosに値を格納
+	//Formコンポーネントから渡された値を格納していく
 	const getTodo = (todo, status) => {
-		setTodos([...todos, {id: todos.length+1, todo: todo, status: status }]);
+		setTodos([...todos, {id: todos.length+1, todo, status }]);
 	};
 
 	//完了・未完了の場合のTodoをソートする
@@ -28,7 +28,7 @@ const TextContents = () => {
 		return todos;
 	};
 
-	//完了・未完了を判定する
+	//Todoが完了・未完了かを切り替える
 	const isTodoChangeStatus = (id) => {
 		const changeStatus = todos.map( index => {
 			if (index.id === id) {
@@ -42,12 +42,14 @@ const TextContents = () => {
 
 	return (
 		<main>
-			<Form getTodo={getTodo}/>
-			<div className={styles.main_contents}>
-				<div className={styles.main_contents_tabs}>
-					{todoProcess.map((status) => {
+			<Form addTodo={getTodo}/>
+			<div className={styles.contents}>
+				<div className={styles.contents_tabs}>
+					{todoProcess.map((status, index) => {
 						return (
-							<button className={`${styles.main_contents_tabs_tab} ${todoStatus === status && styles.is_active}`} 
+							<button 
+								className={`${styles.contents_tabs_tab} ${todoStatus === status && styles.is_active}`}
+								key={index}
 								onClick={() => setTodoStatus(status)}>
 									{status}
 							</button>
@@ -56,13 +58,13 @@ const TextContents = () => {
 				</div>
 				{filterTodos().map((value, index) => {
 					return (
-						<li className={styles.main_contents_list_item} key={index.toString()}>
-							<p className=
-								{`${styles.main_contents_list_item_ttl} ${value.status && styles.is_done_item_ttl}`}>
+						<li className={styles.list_item} key={index}>
+							<p
+								className={`${styles.list_item_ttl} ${value.status && styles.is_done_item_ttl}`}>
 									{value.todo}
 							</p>
 							<button
-								className={`${styles.main_contents_list_item_button} ${value.status && styles.is_done_item_button}`} 
+								className={`${styles.list_item_button} ${value.status && styles.is_done_item_button}`} 
 									onClick={() => isTodoChangeStatus(value.id)}>
 								完了
 							</button>
